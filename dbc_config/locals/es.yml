@@ -189,8 +189,8 @@ sitemap_info_msg : Por favor seleccione el que desea ser incluido en XML Sitemap
 pages : Páginas
 blog_posts : Artículos Blog
 articles : artículos
-blog_post : Blog Publicar
-blog : Post de blog
+blog_post : Blog
+blog : blog
 article : Artículo
 news : Noticias
 view_xml : Ver XML
@@ -604,3 +604,5 @@ dt_loading : Loading ...
 dt_info : Mostrando _START_ a _END_ de entradas _TOTAL_
 dt_filter_info : (filtrado de las entradas totales _MAX_)
 dt_show_entries : Mostrar Entradas _MENU_
+FAQ : Preguntas más frecuentes
+join_us : Únete a nosotros

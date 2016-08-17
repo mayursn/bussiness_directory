@@ -189,9 +189,9 @@ smtp_password: Mot de passe SMTP
 generate_site_map: Générer Plan du site
 sitemap_info_msg: 
 pages: Pages
-blog_posts: Messages blog
+blog_posts: blog
 articles: articles
-blog_post: Blog Post
+blog_post: Blog
 blog: blog
 article: article
 news: nouvelles
@@ -580,3 +580,5 @@ upgrade_browser: navigateur de mise à niveau
 please_upgrade_your_browser: Se il vous plaît mettre à jour votre navigateur
 business: entreprise
 introduction: introduction
+FAQ : FAQ
+join_us : Rejoignez-nous

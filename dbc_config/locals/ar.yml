@@ -189,10 +189,10 @@ smtp_password: SMTP كلمة المرور
 generate_site_map: توليد خريطة الموقع
 sitemap_info_msg: 
 pages: صفحات
-blog_posts: بلوق المشاركات
+blog_posts: بلوق 
 articles: مقالات
-blog_post: بلوق وظيفة
-blog: بلوق وظيفة
+blog_post: بلوق
+blog: بلوق
 article: مقالة
 news: أخبار
 view_xml: عرض XML
@@ -580,3 +580,5 @@ upgrade_browser: متصفح ترقية
 please_upgrade_your_browser: الرجاء تحديث المتصفح
 business: عمل
 introduction: مقدمة
+FAQ: التعليمات
+join_us : انضم إلينا

@@ -189,10 +189,10 @@ smtp_password: SMTP senha
 generate_site_map: Gerar Mapa do Site
 sitemap_info_msg: 
 pages: páginas
-blog_posts: Posts de Blog
+blog_posts: Blog
 articles: artigos
-blog_post: Blog Mensagem
-blog: Blog post
+blog_post: Blog
+blog: Blog
 article: artigo
 news: notícia
 view_xml: Ver XML
@@ -580,3 +580,5 @@ upgrade_browser: atualização navegador
 please_upgrade_your_browser: Atualize seu navegador
 business: negócio
 introduction: introdução
+FAQ : Perguntas frequentes
+join_us : Junte-se a nós

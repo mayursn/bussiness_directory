@@ -40,9 +40,9 @@ class Users_core extends CI_Controller {
 	#load all services view with paging
 	public function all($start='0')
 	{
-		$value['posts']  	= $this->users_model->get_all_users_by_range($start,'id');
-        $data['title'] 		= lang_key('users');
-        $data['content'] 	= load_admin_view('users/allusers_view',$value,TRUE);
+	$value['posts']= $this->users_model->get_all_users_by_range($start,'id');
+        $data['title'] = lang_key('users');
+        $data['content']= load_admin_view('users/allusers_view',$value,TRUE);
 		load_admin_view('template/template_view',$data);		
 	}
 
@@ -139,10 +139,10 @@ class Users_core extends CI_Controller {
 	{
 		$this->load->model('admin/users_model');
 		$this->load->model('admin/package_model');
-        $data['title'] 		= lang_key('create_user');
-        $value['usertypes'] = $this->users_model->get_all_usertypes();
-        $value['packages'] 	= $this->package_model->get_all_packages_by_range('all');
-		$data['content'] 	= load_admin_view('users/createuser_view',$value,TRUE);
+                $data['title'] = lang_key('create_user');
+                $value['usertypes'] = $this->users_model->get_all_usertypes();
+                $value['packages'] = $this->package_model->get_all_packages_by_range('all');
+		$data['content'] = load_admin_view('users/createuser_view',$value,TRUE);
 		load_admin_view('template/template_view',$data);		
 	}
 

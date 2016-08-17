@@ -5,9 +5,9 @@ $limit = 5;
 $CI->db->order_by('id','desc');
 $query = $CI->db->get_where('posts',array('status'=>1),$limit,0);
 ?>
-<div class="s-widget">
+<div class="s-widget" style="display : none;" >
     <!-- Heading -->
-    <h5><i class="fa fa-clock-o color"></i>&nbsp; <?php echo lang_key('recent_posts');?></h5>
+    <h5><i class="fa fa-clock-o color"></i>  <?php echo lang_key('recent_posts');?></h5>
     <!-- Widgets Content -->
     <div class="widget-content hot-properties">
         <?php if($query->num_rows()<=0){?>

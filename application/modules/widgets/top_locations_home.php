@@ -8,12 +8,12 @@ $CI->db->order_by('total', 'desc');
 $CI->db->limit(12);
 $query = $CI->db->get('posts');
 ?>
-<div class="block-heading-two">
+<div class="block-heading-two" style="display:none;">
     <h3><span><i class="fa fa-map-marker"></i> <?php echo lang_key('top_locations'); ?></span>
 
     </h3>
 </div>
-<span class="location-widget">
+<span class="location-widget" style="display:none;">
     <?php foreach ($query->result() as $post) { ?>
             <div class="col-md-3 col-sm-3">
                 <ul class="list-10">

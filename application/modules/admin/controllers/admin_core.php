@@ -210,7 +210,7 @@ class Admin_core extends CI_Controller {
 
 	#users functions
 	public function allusers($start=0)
-	{
+	{            
 		if(!is_admin())
 		{
 			echo lang_key('dont_have_permission');

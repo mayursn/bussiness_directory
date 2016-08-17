@@ -1,6 +1,6 @@
 <?php $per_page = get_settings('business_settings', 'posts_per_page', 6); ?>
 
-<div class="block-heading-two">
+<div class="block-heading-two" style="display: none;">
     <h3><span><i class="fa fa-bookmark"></i> <?php echo lang_key('featured_businesses'); ?></span>
         <div class="pull-right featured-list-switcher">
         	<a target="featured-posts" href="<?php echo site_url('show/featuredposts_ajax/'.$per_page.'/grid');?>"><i class="fa fa-th "></i></a>
@@ -8,12 +8,13 @@
         </div>
     </h3>
 </div>
-<span class="featured-posts">
+<span class="featured-posts" style="display:none;">
 </span>
-<div class="ajax-loading featured-loading"><img src="<?php echo theme_url();?>/assets/img/loading.gif" alt="loading..."></div>
-<a href="" class="load-more-featured btn btn-blue" style="width:100%"><?php echo lang_key('load_more_featured_posts');?></a>
-<div style="clear:both;margin-top:20px"></div>
+<div style="display: none;" class="ajax-loading featured-loading"><img src="<?php echo theme_url();?>/assets/img/loading.gif" alt="loading..."></div>
+<a style="display: none;" href="" class="load-more-featured btn btn-blue" style="width:100%"><?php echo lang_key('load_more_featured_posts');?></a>
+<div style="display: none;" style="clear:both;margin-top:20px"></div>
 <script type="text/javascript">
+    /*
 var per_page = '<?php echo $per_page;?>';
 var featured_count = '<?php echo $per_page;?>';
 
@@ -51,5 +52,5 @@ jQuery(document).ready(function(){
         featured_count = next;
         jQuery('.featured-list-switcher > .selected').trigger('click');
     });
-});
+}); */
 </script>

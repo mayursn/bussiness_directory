@@ -429,7 +429,7 @@
     margin-right: 20px;
 }
 .img-box-4 .img-box-4-content{
-    border-bottom: 3px solid #59ABE3;
+    border-bottom: 3px solid #5700a1;
 }
 .category-bor{
     height: 3px;
@@ -1213,7 +1213,7 @@
     transition: all 0.4s ease 0s;
 }
 .stars .fa.active {
-    color: #ff513f;
+    color: #c00207;
     opacity: 1;
 }
 

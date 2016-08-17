@@ -85,6 +85,7 @@ $route['404_override'] 		 = "en/show/show404";
 $route['(:any)/admin/users'] = "(:any)/admin/users";
 $route['(:any)/users'] = "(:any)/show/members";
 
+$route['(:any)/admin/services'] = "(:any)/admin/services";
 
 $route['(:any)/list-business'] 		= "(:any)/user/new_ad";
 $route['(:any)/choose-package'] = "(:any)/user/payment/choosepackage";
@@ -107,6 +108,7 @@ $route['(:any)/admin/page/(:any)'] = "(:any)/admin/page/$2";
 $route['(:any)/page/(:any)'] = "(:any)/show/page/$2";
 
 $route['(:any)/contact'] = "(:any)/show/contact";
+$route['(:any)/faq'] = "(:any)/show/faq";
 $route['(:any)/sendcontactemail'] = "(:any)/show/sendcontactemail";
 
 $route['(:any)/advancesearch'] = "(:any)/show/search";

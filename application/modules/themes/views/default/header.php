@@ -65,17 +65,17 @@
     <!-- Container -->
     <div class="container">
         <div class="row">
-            <div class="col-md-3 col-sm-3">
+            <div class="col-md-7 col-sm-3">
                 <!-- Logo section -->
                 <div class="logo">
-                    <h3><a href="<?php echo site_url();?>"><img src="<?php echo get_site_logo();?>" alt="Logo" style="height:63px"></a></h3>
+                    <h3><a href="<?php echo site_url();?>"><img src="<?php echo get_site_logo();?>" alt="Logo"></a></h3>
                 </div>
             </div>
-            <div class="col-md-9 col-sm-9">
+            <div class="col-md-12 col-sm-9">
 
                 <!-- Navigation starts.  -->
                 <div class="navy">
-                    <ul class="pull-right">
+                    <ul class="">
                         <?php
                             $CI = get_instance();
                             $CI->load->model('admin/page_model');
@@ -86,23 +86,25 @@
 
                         <?php 
                             $alias = (isset($alias))?$alias:'';
+                            
                             foreach ($CI->page_model->get_menu() as $li) 
                             {
                                 if($li->parent==0)
                                 $CI->page_model->render_top_menu($li->id,0,$alias);
                             }
                         ?>
-
+                        <li class="faq" >
+                        <a class="faq" href="<?php echo site_url('show/faq');?>"><?php echo lang_key('FAQ');?></a>                                
+                        </li>
                         <?php if(!is_loggedin()){?>
-                        <?php if(get_settings('business_settings','enable_signup','Yes')=='Yes'){?>
+                        
+                        <?php if(get_settings('business_settings','enable_signup','Yes')=='Yes'){ ?>
                         <li class="">
-                            <a class="signup" href="<?php echo site_url('account/signupform');?>"><?php echo lang_key('signup')?></a>
-                             <a class="signin" href="#"><?php echo lang_key('signin');?></a>
+                            <a class="signup" href="<?php echo site_url('account/signupform');?>"><?php echo lang_key('join_us');?></a>                             
                         </li>
-                        <?php }?>
-                        <li class="" style="display: none;">
-                           
-                        </li>
+                        <?php } ?>
+                        
+                        
                         <?php }else{ ?>
                         <li class="">
                             <a class="signup" href="<?php echo site_url('admin');?>"><?php echo lang_key('user_panel');?></a>

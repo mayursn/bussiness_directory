@@ -9,7 +9,7 @@ $CI->db->limit(6);
 $query = $CI->db->get('posts');
 
 ?>
-<div class="s-widget">
+<div class="s-widget" style="display: none;">
     <h5><i class="fa fa-user color"></i>&nbsp; <?php echo lang_key('top_users') ?></h5>
     <div class="widget-content tabs">
         <div class="nav-tabs-two">

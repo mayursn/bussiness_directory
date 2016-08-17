@@ -80,11 +80,12 @@ class Account_core extends CI_Controller {
 
 	{
 
-		$this->form_validation->set_rules('useremail','Email','required|valid_email|xss_clean');
+		$this->form_validation->set_rules('useremail_login','Email','required|valid_email|xss_clean');
 
-		$this->form_validation->set_rules('password','Password','required|xss_clean');
+		$this->form_validation->set_rules('password_login','Password','required|xss_clean');
 
-		
+		   //$this->form_validation->set_rules('useremail_login',	lang_key('user_email'),'required|valid_email|xss_clean|callback_useremail_check');
+		//$this->form_validation->set_rules('password_login', 	lang_key('password'),'required|matches[repassword]|min_length[5]|xss_clean');
 
 		if ($this->form_validation->run() == FALSE)
 
@@ -100,7 +101,7 @@ class Account_core extends CI_Controller {
 
 			$this->load->model('auth_model');
 
-			$query = $this->auth_model->check_login($this->input->post('useremail'),$this->input->post('password'),'result');
+			$query = $this->auth_model->check_login($this->input->post('useremail_login'),$this->input->post('password_login'),'result');
 
 
 
@@ -321,13 +322,11 @@ class Account_core extends CI_Controller {
 		$this->form_validation->set_rules('last_name',	lang_key('last_name'), 		'required|xss_clean');
 		$this->form_validation->set_rules('gender',		lang_key('gender'), 			'required|xss_clean');
 		$this->form_validation->set_rules('username', 	lang_key('username'), 		'required|callback_username_check|xss_clean');
-
-
-        $this->form_validation->set_rules('company_name',lang_key('company_name'), 	'xss_clean');
-        $this->form_validation->set_rules('phone',lang_key('phone'), 	'xss_clean');
-        $this->form_validation->set_rules('useremail',	lang_key('user_email'), 		'required|valid_email|xss_clean|callback_useremail_check');
-		$this->form_validation->set_rules('password', 	lang_key('password'), 		'required|matches[repassword]|min_length[5]|xss_clean');
-		$this->form_validation->set_rules('repassword',	lang_key('confirm_password'), 			'required|xss_clean');
+                $this->form_validation->set_rules('company_name',lang_key('company_name'), 	'xss_clean');
+                $this->form_validation->set_rules('phone',lang_key('phone'), 	'xss_clean');
+                $this->form_validation->set_rules('useremail',	lang_key('user_email'),'required|valid_email|xss_clean|callback_useremail_check');
+		$this->form_validation->set_rules('password', 	lang_key('password'),'required|matches[repassword]|min_length[5]|xss_clean');
+		$this->form_validation->set_rules('repassword',	lang_key('confirm_password'),'required|xss_clean');
 		$this->form_validation->set_rules('terms_conditon',lang_key('terms_and_condition'),'xss_clean|callback_terms_check');
 		$enable_pricing = get_settings('business_settings','enable_pricing','Yes');
 		

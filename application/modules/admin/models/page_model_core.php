@@ -172,10 +172,10 @@ class Page_model_core extends CI_Model
 
 
 	function init()
-
+        
 	{
 
-		 $top_menu = get_option('top_menu');
+		 $top_menu = get_option('top_menu');                 
 
 		 $menu = array();
 
@@ -221,7 +221,7 @@ class Page_model_core extends CI_Model
 
 		 }
 
-
+                
 
 		 $this->menu = json_decode($menu);
 
@@ -387,7 +387,7 @@ class Page_model_core extends CI_Model
     	{
 
     		$url = site_url('page/'.$page->alias);
-
+                
     		if($alias==$page->alias)
 
     			$class = 'active';

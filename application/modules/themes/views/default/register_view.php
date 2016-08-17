@@ -1,6 +1,6 @@
 <div class="page-heading-two">
     <div class="container">
-        <h2><?php echo lang_key('signup');?> <span><?php echo lang_key('signup_title');?></span></h2>        
+        <h2><?php echo lang_key('join_us');?> <span><?php echo lang_key('signup_title');?></span></h2>        
         <div class="clearfix"></div>
     </div>
 </div>
@@ -22,13 +22,15 @@
                         <label for="user" class="col-sm-3 control-label"><?php echo lang_key('email'); ?></label>
                         <div class="col-sm-9">
                             <!-- Input -->
-                            <input type="text" class="form-control" name="useremail" placeholder="<?php echo lang_key('email'); ?>">
+                            <input type="text" class="form-control" name="useremail_login" placeholder="<?php echo lang_key('email'); ?>">
+                            <?php echo form_error('useremail_login');?>
                         </div>
                     </div>
                     <div class="form-group">
                         <label for="password" class="col-sm-3 control-label"><?php echo lang_key('password'); ?></label>
                         <div class="col-sm-9">
-                            <input type="password" class="form-control"  name="password" placeholder="<?php echo lang_key('password'); ?>">
+                            <input type="password" class="form-control"  name="password_login" placeholder="<?php echo lang_key('password'); ?>">
+                             <?php echo form_error('password_login');?>
                         </div>
                     </div>
                     <?php if(constant("ENVIRONMENT")=='demo'){?>

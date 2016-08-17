@@ -591,7 +591,7 @@ if ( ! function_exists('render_widgets'))
 				{
 					$row = $query->row();
 					if($row->status==1)
-					{
+					{                                            
 						$curr_lang = get_current_lang();
 						if(read_file('./application/modules/widgets/'.$curr_lang.'_'.$row->alias.'.php')!=FALSE)
 							require'./application/modules/widgets/'.$curr_lang.'_'.$row->alias.'.php';
@@ -788,9 +788,11 @@ if ( ! function_exists('get_active_theme'))
 
 if ( ! function_exists('get_settings'))
 {
+   
 	function get_settings($option='',$key='',$default='Yes')
 	{
 		$settings = get_option($option);
+        
 		if(is_array($settings)==FALSE)
 		{
 			$settings = (array)json_decode($settings->values);

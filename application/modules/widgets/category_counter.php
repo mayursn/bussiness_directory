@@ -3,7 +3,7 @@ $CI = get_instance();
 $CI->load->model('user/post_model');
 $parent_categories = $CI->post_model->get_all_parent_categories();
 ?>
-<div class="counter-four">
+<div class="counter-four" style="display: none;">
 						<div class="counter-content">
 								<?php $i = 0;
 								foreach ($parent_categories->result() as $parent) {

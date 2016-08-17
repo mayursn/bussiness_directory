@@ -3,9 +3,9 @@ $CI = get_instance();
 $CI->load->model('user/post_model');
 $parent_categories = $CI->post_model->get_all_parent_categories();
 ?>
-<div class="s-widget">
+<div class="s-widget" style="display : none;" >
     <!-- Heading -->
-    <h5><i class="fa fa-folder color"></i>&nbsp; <?php echo lang_key('categories') ?></h5>
+    <h5><i class="fa fa-folder color"></i>  <?php echo lang_key('categories') ?></h5>
     <!-- Widgets Content -->
 
     <div class="widget-content categories">

@@ -30,24 +30,25 @@
                         <!-- Blog item starts -->
                         <div class="blog-one-item row">
                             <!-- blog One Img -->
-                            <div class="blog-one-img col-md-3 col-sm-3 col-xs-12">
+                            <div class="blog-one-img col-md-12 col-sm-3 col-xs-12">
                                 <!-- Image -->
                                 <a href="<?php echo site_url('post-detail/'.$post->id.'/'.dbc_url_title($title));?>"><img src="<?php echo get_featured_photo_by_id($post->featured_img);?>" alt="" class="img-responsive img-thumbnail" /></a>
                             </div>
                             <!-- blog One Content -->
-                            <div class="blog-one-content  col-md-9 col-sm-9 col-xs-12">
+                            <div class="blog-one-content  col-md-12 col-sm-9 col-xs-12">
                                 <!-- Heading -->
                                 <h3><a href="<?php echo site_url('post-detail/'.$post->id.'/'.dbc_url_title($title));?>"><?php echo $title;?></a></h3>
                                 <!-- Blog meta -->
+                                
+                                <!-- Paragraph -->
+                                <p><?php echo truncate(strip_tags($desc),400,'&nbsp;',false);?></p>
                                 <div class="blog-meta">
                                     <!-- Date -->
                                     <i class="fa fa-calendar"></i> &nbsp; <?php echo date('D, M d, Y', $post->create_time); ?> &nbsp;
                                     <!-- Author -->
                                     <i class="fa fa-user"></i> &nbsp; <?php echo get_user_fullname_by_id($post->created_by); ?></a>
-
+<?php echo '<a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>';?>
                                 </div>
-                                <!-- Paragraph -->
-                                <p><?php echo truncate(strip_tags($desc),400,'&nbsp;<a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>',false);?></p>
                             </div>
                         </div>
                         <!-- Blog item ends -->

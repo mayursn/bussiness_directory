@@ -189,10 +189,10 @@ smtp_password: SMTP-wachtwoord
 generate_site_map: Genereer Sitemap
 sitemap_info_msg: 
 pages: pagina's
-blog_posts: blog berichten
+blog_posts: blog
 articles: artikelen
-blog_post: blog Post
-blog: blogpost
+blog_post: blog
+blog: blog
 article: artikel
 news: nieuws
 view_xml: Bekijk XML
@@ -580,3 +580,5 @@ upgrade_browser: upgrade browser
 please_upgrade_your_browser: Gelieve uw browser
 business: bedrijf
 introduction: introductie
+FAQ : sss
+join_us : bize katıl

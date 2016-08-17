@@ -191,8 +191,8 @@ sitemap_info_msg:
 pages: страницы
 blog_posts: Сообщения в блоге
 articles: Статьи
-blog_post: сообщение в блоге
-blog: сообщение в блоге
+blog_post: блог
+blog: блог
 article: статья
 news: новости
 view_xml: Посмотреть XML
@@ -580,3 +580,5 @@ upgrade_browser: Обновление браузера
 please_upgrade_your_browser: Пожалуйста , обновите ваш браузер
 business: Бизнес
 introduction: введение
+FAQ : Вопросы-Ответы
+join_us : Присоединяйтесь к нам

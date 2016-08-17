@@ -177,6 +177,46 @@
         </li>
 
         <?php } ?>
+         <li class="<?php echo is_active_menu('admin/services/'); ?>">
+            <a href="#" class="dropdown-toggle">
+                <i class="fa fa-bars"></i>
+                <span><?php echo lang_key('services'); ?></span>
+                <b class="arrow fa fa-angle-right"></b>
+            </a>
+
+            <ul class="submenu">
+                <li class="<?php echo is_active_menu('admin/services/all'); ?>">
+                    <a href="<?php echo site_url('admin/services/all'); ?>">
+                        <?php echo lang_key('all_services'); ?>
+                    </a>
+                </li>
+                <li class="<?php echo is_active_menu('admin/services/create'); ?>">
+                    <a href="<?php echo site_url('admin/services/create');?>">
+                        <?php echo lang_key('create_service'); ?>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="<?php echo is_active_menu('admin/product/'); ?>">
+            <a href="#" class="dropdown-toggle">
+                <i class="fa fa-bars"></i>
+                <span><?php echo lang_key('product'); ?></span>
+                <b class="arrow fa fa-angle-right"></b>
+            </a>
+
+            <ul class="submenu">
+                <li class="<?php echo is_active_menu('admin/product/all'); ?>">
+                    <a href="<?php echo site_url('admin/product/all'); ?>">
+                        <?php echo lang_key('all_product'); ?>
+                    </a>
+                </li>
+                <li class="<?php echo is_active_menu('admin/product/create'); ?>">
+                    <a href="<?php echo site_url('admin/product/create');?>">
+                        <?php echo lang_key('create_product'); ?>
+                    </a>
+                </li>
+            </ul>
+        </li>
 
         <li class="<?php echo is_active_menu('admin/editprofile'); ?>">
 
@@ -196,8 +236,6 @@
         </li>
 
         <?php if (is_admin()) { ?>
-
-
 
             <li class="<?php echo is_active_menu('admin/package/'); ?>">
                 <a href="#" class="dropdown-toggle">
@@ -226,8 +264,6 @@
                             <?php echo lang_key('package_settings'); ?>
                         </a>
                     </li>
-
-
                 </ul>
 
             </li>

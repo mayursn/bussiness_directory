@@ -1,7 +1,7 @@
 <!-- Search Widget -->
-<div class="s-widget">
+<div class="s-widget" style="display:none;">
     <!-- Heading -->
-    <h5><i class="fa fa-search color"></i>&nbsp; <?php echo lang_key('search'); ?></h5>
+    <h5><i class="fa fa-search color"></i>  <?php echo lang_key('search'); ?></h5>
     <!-- Widgets Content -->
     <div class="widget-content search">
         <form role="form" action="<?php echo site_url('show/advfilter')?>" method="post">

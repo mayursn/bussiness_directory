@@ -418,7 +418,7 @@
                         <div class="clearfix"></div>
                     </div>
 
-                    <div class="s-widget">
+                    <div class="s-widget" >
                         <h5><i class="fa fa-tags color"></i>&nbsp; <?php echo lang_key('tags'); ?></h5>
                         <?php
                         $tags = $post->tags;

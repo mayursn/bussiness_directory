@@ -75,3 +75,23 @@ Night Clubs
 Shops
 Cinemas
 Cafe
+miles
+Airport
+Shops
+Restaurants
+Night Clubs
+Shops
+Cinemas
+all_services
+all_services
+services
+all_services
+new_services
+edit_service
+edit_service
+edit_service
+Quality
+Duration
+Duration
+Official opening hours
+new_services

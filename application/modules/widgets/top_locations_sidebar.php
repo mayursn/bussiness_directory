@@ -8,7 +8,7 @@ $CI->db->order_by('total', 'desc');
 $CI->db->limit(10);
 $query = $CI->db->get('posts');
 ?>
-<div class="s-widget">
+<div class="s-widget" style="display:none;">
     <!-- Heading -->
     <h5><i class="fa fa-map-marker color"></i>&nbsp; <?php echo lang_key('top_locations') ?></h5>
     <!-- Widgets Content -->

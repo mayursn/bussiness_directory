@@ -64,28 +64,35 @@
 
     $text_color = get_settings('banner_settings', 'menu_text_color', '#666');
 
-    $active_text_color = get_settings('banner_settings', 'active_menu_text_color', '#32c8de');
+    $active_text_color = get_settings('banner_settings', 'active_menu_text_color', '#c00207');
 
     ?>
 
 <style>
+    /* $top_bar_bg_color */
     .top-bar{
         background: <?php echo $top_bar_bg_color;?>; 
     }
     
+    /* $bg_color */
     .header-2{
         background: <?php echo $bg_color;?>; 
     }
+    /* $bg_color */
     .header-2 .navy > ul > li > ul{
         background: <?php echo $bg_color;?>; 
         
     }
+    
+     /*  $text_color */
     .header-2 .navy > ul > li > a{
         color: <?php echo $text_color;?>
     }
+    /*  $text_color */
     .header-2 .navy ul ul li a{
         color: <?php echo $text_color;?>        
     }
+    /* active text color $active_text_color */
    .header-2 .navy > ul > li > a:hover{
         color: <?php echo $active_text_color;?>
     }
@@ -93,12 +100,19 @@
         color: <?php echo $active_text_color;?>        
     }
     .header-2 .navy > ul > .active > a{
-        color: <?php echo $active_text_color;?>
+        color: <?php echo $active_text_color;?>        
     }
     .header-2 .navy ul ul .active a{
         color: <?php echo $active_text_color;?>        
     }
-
+	/*added by dhara*/
+	/*search business BG color*/
+	.real-estate .re-big-form {background:#f8f8f8 !important; border:1px solid #efeeee !important; padding:20px 0 0 0 !important;}
+	
+	
+	
+	
+/* active text color end */
     .real-estate .re-big-form{
         padding: 15px 0 0 0;
         <?php 

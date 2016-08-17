@@ -189,10 +189,10 @@ smtp_password: SMTP পাসওয়ার্ড
 generate_site_map: সাইট ম্যাপ নির্মাণ করা
 sitemap_info_msg: 
 pages: পেজ
-blog_posts: ব্লগ পোস্ট
+blog_posts: ব্লগ
 articles: প্রবন্ধ
-blog_post: ব্লগ পোস্ট
-blog: ব্লগ পোস্ট
+blog_post: ব্লগ
+blog: ব্লগ
 article: প্রবন্ধ
 news: সংবাদ
 view_xml: দেখুন এক্সএমএল
@@ -580,3 +580,5 @@ upgrade_browser: আপগ্রেড ব্রাউজার
 please_upgrade_your_browser: আপনার ব্রাউজার আপগ্রেড করুন
 business: ব্যবসায়
 introduction: ভূমিকা
+FAQ: অনবরত জিজ্ঞাসিত প্রশ্ন
+join_us : আমাদের সাথে যোগ দাও

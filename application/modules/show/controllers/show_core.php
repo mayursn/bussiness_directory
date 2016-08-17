@@ -703,8 +703,41 @@ class Show_core extends CI_controller {
 			load_view('single_review_view',$value);
 		}
 	}
+        
+        /**
+         * FAQ Page
+         */
+        function faq()
+        {
+            //$this->load->model();
+                $value = array();
+		$value['countries'] = get_all_locations_by_type('country');
+		$data['content'] = load_view('faq_view',$value,TRUE);
+                $value['page_title']	= 'faq';
+		$data['sub_title']		= 'faq';
+		$data['alias']   = 'faq';
+		load_template($data,$this->active_theme);
+        }
+        
+        function services()
+        {
+            $this->load->model('admin/services_model');
+                $value = array();
+                $value['page_title']= 'Services';	
+                $value['services'] = $this->services_model->get_all_services();
+		$data['content'] = load_view('services_view',$value,TRUE);
+                $data['alias']   = 'services';
+		load_template($data,$this->active_theme);
+        }
 
-
+        function products()
+        {
+                $value = array();
+                $value['page_title']= 'Products';		
+		$data['content'] = load_view('products_view',$value,TRUE);
+                $data['alias']   = 'products';
+		load_template($data,$this->active_theme);
+        }
 }
 
 

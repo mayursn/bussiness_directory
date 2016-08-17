@@ -189,10 +189,10 @@ generate_site_map: Generate site map
 sitemap_info_msg: 
   NB: Please select which you want to be included on sitemap xml. After successful generation sitemap.xml is saved under ROOT directory. You can also edit that file for including your own urls.
 pages: Pages
-blog_posts: Blog Posts
+blog_posts: Blog
 articles: Articles
-blog_post: Blog Post
-blog: Blog post
+blog_post: Blog
+blog: Blog 
 article: Article
 news: News
 view_xml: View XML
@@ -616,3 +616,27 @@ already_reported : Already reported
 reported_post : Reported posts
 all_reported_posts : All reported posts
 report: Report
+FAQ: FAQ
+join_us : Join us
+services : Services
+all_services : All Services
+create_service : Create Service
+opening_hours : Opening hours
+official_opening_hours : Official opening hours
+services_cost : Services Cost
+service_name : Service Name
+warranty_given : Warranty Given
+follow_up : Follow Up
+name_of_service : Name Of Service
+service_created : Service created successfully
+service_updated : Service updated successfully
+service_deleted : Service Deleted Successfully
+no_products : No Products
+all_products : All Products
+name_of_product : Name Of Product
+product_created : Product Created Successfully
+create_product : Create Product
+edit_product : Edit Product
+product_updated : Product Updated Successfully
+product_deleted : Product Deleted Successfully
+all_product : All Product

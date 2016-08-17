@@ -395,10 +395,10 @@ class System_core extends CI_Controller {
 
 	public function translate()
 	{
-		$value['all_langs']	= $this->system_model->get_all_langs();
-        $data['title'] 		= lang_key('auto_translate');
-		$data['content']   	= load_admin_view('langeditor/translate_view',$value,TRUE);
-		load_admin_view('template/template_view',$data);
+            $value['all_langs'] = $this->system_model->get_all_langs();
+            $data['title'] = lang_key('auto_translate');
+            $data['content'] = load_admin_view('langeditor/translate_view',$value,TRUE);
+	    load_admin_view('template/template_view',$data);
 	}
 	
 
