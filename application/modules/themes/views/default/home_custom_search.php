@@ -16,8 +16,8 @@
                 <!-- Tab content -->
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="tab-1">
-
-                        <form role="form" action="<?php echo site_url('show/advfilter')?>" method="post">
+                        <!-- <?php echo site_url('show/advfilter')?> -->
+                        <form role="form" action="#" method="post">
                             <div class="row">
                                 <div class="col-md-3 col-sm-6">
                                     <div class="form-group">
@@ -63,9 +63,9 @@
 
                                     </div>
                                 </div>
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-md-3 col-sm-6" >
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-color"><i class="fa fa-search"></i>&nbsp; <?php echo lang_key('search_businesses'); ?></button>
+                                        <button type="submit" disabled="" class="btn btn-color"><i class="fa fa-search"></i>&nbsp; <?php echo lang_key('search_businesses'); ?></button>
                                     </div>
                                 </div>
                             </div>

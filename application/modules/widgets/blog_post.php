@@ -23,7 +23,7 @@ $posts = $CI->show_model->get_all_active_blog_posts_by_range($start,$PER_PAGE,'i
                     ?>
 
                     <!-- Blog item starts -->
-                    <div class="blog-one-item row">
+                    <div class="blog-one-item row" >
                         <!-- blog One Img -->
                         <div class="blog-one-img col-md-3 col-sm-3 col-xs-12">
                             <!-- Image -->
@@ -36,13 +36,13 @@ $posts = $CI->show_model->get_all_active_blog_posts_by_range($start,$PER_PAGE,'i
                             <!-- Blog meta -->
                             <div class="blog-meta">
                                 <!-- Date -->
-                                <i class="fa fa-calendar"></i> &nbsp; <?php echo date('D, M d, Y', $post->create_time); ?> &nbsp;
+                                <i class="fa fa-calendar"></i>   <?php echo date('D, M d, Y', $post->create_time); ?>  
                                 <!-- Author -->
-                                <i class="fa fa-user"></i> &nbsp; <?php echo get_user_fullname_by_id($post->created_by); ?></a>
+                                <i class="fa fa-user"></i>   <?php echo get_user_fullname_by_id($post->created_by); ?></a>
 
                             </div>
                             <!-- Paragraph -->
-                            <p><?php echo truncate(strip_tags($desc),400,'&nbsp;<a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>',false);?></p>
+                            <p><?php echo truncate(strip_tags($desc),400,' <a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>',false);?></p>
                         </div>
                     </div>
                     <!-- Blog item ends -->

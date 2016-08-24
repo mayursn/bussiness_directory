@@ -3,19 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/views/default/pages/menu_view.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/themes/views/default/header.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/config/routes.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/controllers/page_core.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/widgets/top_agents.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/models/page_model_core.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/controllers/page.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/controllers/admin.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/themes/views/default/register_view.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/widgets/adsense_full_width.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/themes/views/default/page_view.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/widgets/top_bar.php</file>
-            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/controllers/admin_core.php</file>
+            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/views/default/services/editservice.php</file>
+            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/controllers/services_core.php</file>
+            <file>file:/opt/lampp/htdocs/bussiness_directory/application/modules/admin/views/default/services/createservice_view.php</file>
         </group>
     </open-files>
 </project-private>

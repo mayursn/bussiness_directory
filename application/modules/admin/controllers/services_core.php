@@ -182,9 +182,11 @@ class Services_core extends CI_Controller {
 	function add()
 	{
             
+                $this->form_validation->set_rules('category',lang_key('category'), 'required|xss_clean');
 		$this->form_validation->set_rules('service_name',lang_key('service_name'), 'required|xss_clean');
 		$this->form_validation->set_rules('quality',lang_key('quality'), 	'required|xss_clean');
 		$this->form_validation->set_rules('duration',lang_key('duration'), 'required|xss_clean');
+                $this->form_validation->set_rules('location',lang_key('location'), 'required|xss_clean');
 		$this->form_validation->set_rules('opening_hours',lang_key('opening_hours'), 'required|xss_clean');
 		$this->form_validation->set_rules('services_cost',lang_key('services_cost'), 'required|xss_clean');
 		$this->form_validation->set_rules('warranty_given', lang_key('warranty_given'), 'required|xss_clean');
@@ -196,16 +198,46 @@ class Services_core extends CI_Controller {
                 }
 		else
 		{
+                    $data = array();
+                    if($_FILES['photoimg']['name']!="")
+                    {
+                    $file = $_FILES['photoimg']['name'];
+                    $exp = explode('.', $file);
+                    $ext = strtolower(end($exp));
+                    $file_name = date('dmYhis').'.'.$ext;
+                    
+                    $config['upload_path']          = FCPATH.'assets/images/services/';
+                    $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                    $config['file_name'] = $file_name;
+
+                    $this->load->library('upload', $config);
+                    if ( ! $this->upload->do_upload('photoimg'))
+                    {
+                            $error =  $this->upload->display_errors();
+                            $this->session->set_flashdata('error',$error);
+                            $this->create();
+                    }
+                    else
+                    {
+                            //$data = array('upload_data' => $this->upload->data());
+                          
+                            $data['service_file'] =  $file_name;
+                    }
+                     
+                    }
 			$this->load->helper('date');
 			$this->load->library('encrypt');
 			$datestring = "%Y-%m-%d";
 			$time = time();
 			$request_date = mdate($datestring, $time);
-			$data = array();
+			
                         $data['user_id'] = $this->session->userdata('user_id');
 			$data['service_name'] = $this->input->post('service_name');
+                        $data['service_description'] = $this->input->post('description');
+                        $data['category'] = $this->input->post('category');
+                        $data['location'] = $this->input->post('location');
 			$data['quality'] = $this->input->post('quality');
-			$data['duration'] = $this->input->post('duration');
+			$data['duration'] = implode(" ", $this->input->post('duration'));
 			$data['opening_hours'] = $this->input->post('opening_hours');
 			$data['services_cost'] 	= $this->input->post('services_cost');
                         $data['warranty_given'] = $this->input->post('warranty_given');
@@ -279,8 +311,10 @@ class Services_core extends CI_Controller {
         function update($id)
         {
                 $this->form_validation->set_rules('service_name',lang_key('service_name'), 'required|xss_clean');
+                $this->form_validation->set_rules('category',lang_key('category'), 'required|xss_clean');
 		$this->form_validation->set_rules('quality',lang_key('quality'), 	'required|xss_clean');
 		$this->form_validation->set_rules('duration',lang_key('duration'), 'required|xss_clean');
+                $this->form_validation->set_rules('location',lang_key('location'), 'required|xss_clean');
 		$this->form_validation->set_rules('opening_hours',lang_key('opening_hours'), 'required|xss_clean');
 		$this->form_validation->set_rules('services_cost',lang_key('services_cost'), 'required|xss_clean');
 		$this->form_validation->set_rules('warranty_given', lang_key('warranty_given'), 'required|xss_clean');
@@ -292,16 +326,46 @@ class Services_core extends CI_Controller {
                 }
 		else
 		{
+                     $data = array();
+                    if($_FILES['photoimg']['name']!="")
+                    {
+                    $file = $_FILES['photoimg']['name'];
+                    $exp = explode('.', $file);
+                    $ext = strtolower(end($exp));
+                    $file_name = date('dmYhis').'.'.$ext;
+                    
+                    $config['upload_path']          = FCPATH.'assets/images/services/';
+                    $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                    $config['file_name'] = $file_name;
+
+                    $this->load->library('upload', $config);
+                    if ( ! $this->upload->do_upload('photoimg'))
+                    {
+                            $error =  $this->upload->display_errors();
+                            $this->session->set_flashdata('error',$error);
+                           $this->editservice($id);	
+                    }
+                    else
+                    {
+                            //$data = array('upload_data' => $this->upload->data());
+                          
+                            $data['service_file'] =  $file_name;
+                    }
+                     
+                    }
 			$this->load->helper('date');
 			$this->load->library('encrypt');
 			$datestring = "%Y-%m-%d";
 			$time = time();
 			$request_date = mdate($datestring, $time);
-			$data = array();
+			
                         $data['user_id'] = $this->session->userdata('user_id');
+                        $data['category'] = $this->input->post('category');
 			$data['service_name'] = $this->input->post('service_name');
+                        $data['service_description'] = $this->input->post('description');
+                        $data['location'] = $this->input->post('location');
 			$data['quality'] = $this->input->post('quality');
-			$data['duration'] = $this->input->post('duration');
+			$data['duration'] = implode(" ", $this->input->post('duration'));
 			$data['opening_hours'] = $this->input->post('opening_hours');
 			$data['services_cost'] 	= $this->input->post('services_cost');
                         $data['warranty_given'] = $this->input->post('warranty_given');

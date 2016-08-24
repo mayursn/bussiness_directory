@@ -409,9 +409,9 @@ class Page_model_core extends CI_Model
 	    {
 
 
-
+                //$url
 	        echo '<li class="'.$class.'" >
-
+                    
 	                    <a href="'.$url.'">'.translate($page->title).'</a>
 
 	                </li>';

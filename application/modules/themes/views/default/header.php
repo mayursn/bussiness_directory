@@ -2,12 +2,12 @@
 <div class="top-bar">
     <div class="container">
 
-        <?php render_widget('top_bar'); ?>
+        
 
         
 
         <!-- Langauge starts -->
-        <div class="tb-language dropdown pull-right">
+        <div class="tb-language dropdown pull-right" style="display: none;" >
             <?php 
             $CI         = get_instance();
             $uri        = current_url();
@@ -51,7 +51,7 @@
         </div-->
         <!-- Search section ends -->
 
-        <?php render_widget('top_bar_social'); ?>
+        
 
 
         <div class="clearfix"></div>
@@ -65,16 +65,22 @@
     <!-- Container -->
     <div class="container">
         <div class="row">
-            <div class="col-md-7 col-sm-3">
+            <div class="col-md-6 col-sm-12">
                 <!-- Logo section -->
                 <div class="logo">
                     <h3><a href="<?php echo site_url();?>"><img src="<?php echo get_site_logo();?>" alt="Logo"></a></h3>
                 </div>
             </div>
-            <div class="col-md-12 col-sm-9">
+            <div class="col-md-6 col-sm-12">
+            <div class="col-md-12"><?php render_widget('top_bar'); ?></div>
+             <div class="col-md-12"><?php render_widget('top_bar_social'); ?></div>
+            </div>
+            
+            
+            <div class="col-md-12 col-sm-12">
 
                 <!-- Navigation starts.  -->
-                <div class="navy">
+                <div class="navy" >
                     <ul class="">
                         <?php
                             $CI = get_instance();
@@ -91,15 +97,18 @@
                             {
                                 if($li->parent==0)
                                 $CI->page_model->render_top_menu($li->id,0,$alias);
+                                
                             }
                         ?>
                         <li class="faq" >
+                            <!-- <?php //echo site_url('show/faq');?> -->
                         <a class="faq" href="<?php echo site_url('show/faq');?>"><?php echo lang_key('FAQ');?></a>                                
                         </li>
                         <?php if(!is_loggedin()){?>
                         
                         <?php if(get_settings('business_settings','enable_signup','Yes')=='Yes'){ ?>
                         <li class="">
+                            <?php //echo site_url('account/signupform');?>
                             <a class="signup" href="<?php echo site_url('account/signupform');?>"><?php echo lang_key('join_us');?></a>                             
                         </li>
                         <?php } ?>
@@ -107,9 +116,11 @@
                         
                         <?php }else{ ?>
                         <li class="">
+                            <?php //echo site_url('admin');?>
                             <a class="signup" href="<?php echo site_url('admin');?>"><?php echo lang_key('user_panel');?></a>
                         </li>
                         <li class="">
+                            <?php //echo site_url('account/logout');?>
                             <a class="signup" href="<?php echo site_url('account/logout');?>"><?php echo lang_key('logout');?></a>
                         </li>
                         <?php }?>
@@ -119,8 +130,8 @@
                 <!-- Navigation ends -->
 
             </div>
-
-        </div>
+</div>
+        
     </div>
 </div>
 

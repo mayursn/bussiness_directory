@@ -50,6 +50,12 @@ class Services_model_core extends CI_Model
         $this->db->where('service_id',$id);
         $this->db->delete('bd_services');
     }
+    
+    function services_list()
+    {
+        $this->db->order_by('rand()');
+        return $this->db->get('bd_services');
+    }
 }
 
 /* End of file admin_model_core.php */

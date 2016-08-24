@@ -135,18 +135,15 @@ class Admin_core extends CI_Controller {
 	public function updateprofile()
 	{
 
-        $this->form_validation->set_rules('first_name',	'First Name', 		'required|xss_clean');
-        $this->form_validation->set_rules('last_name',	'last Name', 		'required|xss_clean');
-        $this->form_validation->set_rules('gender',		'Gender', 			'required|xss_clean');
+        $this->form_validation->set_rules('first_name',	'First Name','required|xss_clean');
+        $this->form_validation->set_rules('last_name',	'last Name','required|xss_clean');
+        $this->form_validation->set_rules('gender','Gender','required|xss_clean');
 
-
-		$this->form_validation->set_rules('user_name', 	'Username', 		'required|callback_username_check|xss_clean');
-        $this->form_validation->set_rules('user_email', 	'Email', 		'required|valid_email|callback_useremail_check|xss_clean');
+	$this->form_validation->set_rules('user_name', 'Username','required|callback_username_check|xss_clean');
+        $this->form_validation->set_rules('user_email', 'Email','required|valid_email|callback_useremail_check|xss_clean');
 
         if($this->input->post('password')!='' || $this->input->post('confirm_password')!='')
         	$this->form_validation->set_rules('password', 'Password', 'required|matches[confirm_password]|min_length[5]|xss_clean');
-
-
 
 		if ($this->form_validation->run() == FALSE)
 		{
@@ -168,12 +165,12 @@ class Admin_core extends CI_Controller {
 			}
 			else
 			{
-				$userdata['profile_photo'] 	= $this->input->post('profile_photo');
-	            $userdata['first_name'] 	= $this->input->post('first_name');
-	            $userdata['last_name'] 		= $this->input->post('last_name');
-	            $userdata['gender'] 		= $this->input->post('gender');
-	            $userdata['user_name'] 		= $this->input->post('user_name');
-                $userdata['user_email'] 	= $this->input->post('user_email');
+		$userdata['profile_photo']= $this->input->post('profile_photo');
+                $userdata['first_name'] = $this->input->post('first_name');
+                $userdata['last_name'] = $this->input->post('last_name');
+                $userdata['gender'] = $this->input->post('gender');
+	        $userdata['user_name'] = $this->input->post('user_name');
+                $userdata['user_email'] = $this->input->post('user_email');
 
                 if($this->input->post('password')!='') 
                 {

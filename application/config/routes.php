@@ -118,8 +118,6 @@ $route['(:any)/results/(:any)'] = "(:any)/show/result/$2";
 
 $route['(:any)/tags/(:any)'] = "(:any)/show/tag/$2";
 
-
-
 $route['(:any)/ads/(:any)'] = "(:any)/show/detail/$2";
 
 $route['(:any)/embed/(:any)'] = "(:any)/show/embed/$2";

@@ -3,11 +3,11 @@
                     <!-- Foot Item Content -->
                     <div class="foot-item-content address">
                         <!-- Heading -->
-                        <h6 class="bold"><i class="fa fa-home"></i>&nbsp;&nbsp;Hanks Ltd</h6>
+                        <h6 class="bold"><i class="fa fa-home"></i>&nbsp;&nbsp; Thesepp Ltd</h6>
                         <!-- Paragraph -->
                         <p class="add">
                            67/2 Loren Ipsum</p>
-                        <p class="tel"> <i class="fa fa-phone"></i> Tel : + (88) - 8XX XXX<br>
-                        <i class="fa fa-envelope"></i>  Mail : <a href="mailto:info@searchnative.in">info@searchnative.in</a><br>
+                        <p class="tel"> <i class="fa fa-phone"></i> Tel : +1 (800)-(000)-0000<br>
+                        <i class="fa fa-envelope"></i>  Mail : <a href="mailto:info@thesepp.com">info@thesepp.com</a><br>
                         <i class="fa fa-calendar"></i> Business Hours : 9:30 - 5:30</p>
                     </div>

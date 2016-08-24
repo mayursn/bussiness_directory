@@ -12,7 +12,54 @@
 <div class="container">
     <div class="blog-one">
         <div class="row">
+            <div class="col-md-12">
+                <div class="searchlist">
+                    <div class="pdfbtn" style="display: none;">
+                    <a href="#"><img src="<?php echo theme_url();?>/assets/img/pdficon.gif" alt=""/></a>
+                  </div>
+                  <div class="searchlist_detail">
+                     <?php
+                if($services->num_rows()<=0){
+                    ?>
+                    <div class="alert alert-warning"><?php echo lang_key('post_not_found'); ?></div>
+                <?php
+                }
+                else{ ?>
+                    <div id="list-result"></div>
+                    <?php foreach($services->result() as $post){  ?>
+                   <div class="listdetail">
+                      <div class="col-md-2">
+                        <img src="<?php echo get_service_photo_by_id($post->service_file); ?>" alt="" class="img-responsive img-thumbnail" /> </div>
+                      <div class="col-md-6">
+                       
+                        <span><?php echo $post->service_name;?></span><br/>
+                           
+<div class="listadd"><i class="fa fa-location-arrow"></i> <b>Quality : <?php echo $post->quality; ?></b></div>
+<div class="listadd"><i class="fa fa-location-arrow"></i> <b>Duration : <?php echo $post->duration; ?></b>  &nbsp; &nbsp;   <i class="fa fa-location-arrow"></i><b>Services Cost : <?php echo $post->services_cost; ?></b></div>
 
+                        <div class="listadd"><i class="fa fa-location-arrow"></i> <b>Warranty Given : <?php echo $post->warranty_given; ?></b>   &nbsp; &nbsp;   <i class="fa fa-location-arrow"></i> <b>Opening Hours : <?php echo $post->opening_hours; ?></b></div>
+                        <div class="listadd"><i class="fa fa-location-arrow"></i> <b>Location : <?php echo $post->location; ?></b>   &nbsp; &nbsp;   <i class="fa fa-location-arrow"></i> <b>Follow up : <?php echo $post->follow_up; ?></b></div>
+                        <div class="listadd"><i class="fa fa-location-arrow"></i> <b>Price : <?php echo $post->contact; ?></b>   &nbsp; &nbsp;   <i class="fa fa-location-arrow"></i> </div>
+                        <div class="listadd"></div>
+                        <div class="listadd"></div>
+                        <div class="listadd"></div>
+                        <div class="blog-meta">
+                                    <!-- Date -->
+                                    <i class="fa fa-calendar"></i> &nbsp; <?php echo  date('D, M d, Y', strtotime($post->created_date)); ?> &nbsp;
+                                    <!-- Author -->
+                                    <i class="fa fa-user"></i> &nbsp; <?php echo get_user_fullname_by_id($post->user_id); ?></a>
+                                    <!--<?php //echo '<a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>';?>-->
+                                </div>
+                        
+                      </div>
+                    </div>
+                    <?php } ?>
+                <?php } ?>
+                     
+                  </div>
+                </div>
+              </div>
+            
             <div class="col-md-9 col-sm-12 col-xs-12">
 
                 <?php
@@ -32,22 +79,33 @@
                             <!-- blog One Img -->
                             <div class="blog-one-img col-md-12 col-sm-3 col-xs-12">
                                 <!-- Image -->
-                                <a href="<?php echo site_url('post-detail/'.$post->id.'/'.dbc_url_title($title));?>"><img src="<?php echo get_featured_photo_by_id($post->featured_img);?>" alt="" class="img-responsive img-thumbnail" /></a>
+                               <img src="<?php echo get_service_photo_by_id($post->service_file); ?>" alt="" class="img-responsive img-thumbnail" />
                             </div>
                             <!-- blog One Content -->
                             <div class="blog-one-content  col-md-12 col-sm-9 col-xs-12">
                                 <!-- Heading -->
-                                <h3><a href="<?php echo site_url('post-detail/'.$post->id.'/'.dbc_url_title($title));?>"><?php echo $title;?></a></h3>
+                                <h3><?php echo $post->service_name;?></h3>
                                 <!-- Blog meta -->
                                 
                                 <!-- Paragraph -->
-                                <p><?php echo truncate(strip_tags($desc),400,'&nbsp;',false);?></p>
+                                <!--<p><?php //echo truncate(strip_tags($post->service_name),400,'&nbsp;',false);?></p>                                
+                                -->
+                                <ul>
+                                    <li>Quality : <?php echo $post->quality; ?></li>
+                                    <li>Duration : <?php echo $post->duration; ?></li>
+                                    <li>Opening Hours : <?php echo $post->opening_hours; ?></li>                                    
+                                    <li>Warranty Given : <?php echo $post->warranty_given; ?></li>
+                                    <li>Services Cost : <?php echo $post->services_cost; ?></li>
+                                    <li>Follow up : <?php echo $post->follow_up; ?></li>                                    
+                                    
+                                </ul>
+                                
                                 <div class="blog-meta">
                                     <!-- Date -->
-                                    <i class="fa fa-calendar"></i> &nbsp; <?php echo date('D, M d, Y', $post->create_time); ?> &nbsp;
+                                    <i class="fa fa-calendar"></i> &nbsp; <?php echo date('D, M d, Y', strtotime($post->created_date)); ?> &nbsp;
                                     <!-- Author -->
-                                    <i class="fa fa-user"></i> &nbsp; <?php echo get_user_fullname_by_id($post->created_by); ?></a>
-<?php echo '<a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>';?>
+                                    <i class="fa fa-user"></i> &nbsp; <?php echo get_user_fullname_by_id($post->user_id); ?></a>
+                                    <!--<?php //echo '<a href="'.site_url('post-detail/'.$post->id.'/'.dbc_url_title($title)).'">'.lang_key('view_more').'</a>';?>-->
                                 </div>
                             </div>
                         </div>

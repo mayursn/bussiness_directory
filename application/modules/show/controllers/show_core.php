@@ -363,13 +363,13 @@ class Show_core extends CI_controller {
 		$output = array();
 		if($return_type=='view')
 		{
-	    	$output['content'] 	= load_view($view_type.'_view',$value,TRUE);
-	    	$output['url']		= $result['url'];			
+                    $output['content'] 	= load_view($view_type.'_view',$value,TRUE);
+                    $output['url']		= $result['url'];			
 		}
 		else
 		{
-	    	$output['data'] 	= prepare_map_json_from_query($result['query']);
-	    	$output['url']		= $result['url'];
+                    $output['data'] 	= prepare_map_json_from_query($result['query']);
+                    $output['url']		= $result['url'];
 		}
 
     	echo json_encode($output);
@@ -428,13 +428,13 @@ class Show_core extends CI_controller {
 	public function post($type='all',$start=0)
 	{
 		$this->config->load('business_directory');
-		$options 				= $this->config->item('blog_post_types');
-		$value['posts']			= $this->show_model->get_all_active_blog_posts_by_range($start,$this->PER_PAGE,'id','desc',$type);
-		$total 					= $this->show_model->count_all_active_blog_posts($type);
-		$value['pages']			= configPagination('show/post/'.$type,$total,5,$this->PER_PAGE);
+		$options = $this->config->item('blog_post_types');
+		$value['posts']	= $this->show_model->get_all_active_blog_posts_by_range($start,$this->PER_PAGE,'id','desc',$type);
+		$total 	= $this->show_model->count_all_active_blog_posts($type);
+		$value['pages']	= configPagination('show/post/'.$type,$total,5,$this->PER_PAGE);
 		$value['page_title']	= (isset($options[$type]))?$options[$type]:$type;
-		$data['sub_title']		= (isset($options[$type]))?$options[$type]:$type;
-		$data['content'] 		= load_view('posts_view',$value,TRUE);
+		$data['sub_title'] = (isset($options[$type]))?$options[$type]:$type;
+		$data['content'] = load_view('posts_view',$value,TRUE);
 		load_template($data,$this->active_theme);
 
 	}
@@ -719,12 +719,15 @@ class Show_core extends CI_controller {
 		load_template($data,$this->active_theme);
         }
         
-        function services()
+        function services($start=0)
         {
             $this->load->model('admin/services_model');
                 $value = array();
+                //$value['services']	= $this->show_model->get_all_active_services_by_range($start,$this->PER_PAGE,'service_id','desc');
+		//$total 	= $this->show_model->count_all_active_services();
+		//$value['pages']	= configPagination('show/services/',$total,5,$this->PER_PAGE);
                 $value['page_title']= 'Services';	
-                $value['services'] = $this->services_model->get_all_services();
+                $value['services'] = $this->services_model->services_list();
 		$data['content'] = load_view('services_view',$value,TRUE);
                 $data['alias']   = 'services';
 		load_template($data,$this->active_theme);
@@ -732,11 +735,266 @@ class Show_core extends CI_controller {
 
         function products()
         {
-                $value = array();
-                $value['page_title']= 'Products';		
+                $this->load->model('admin/product_model');
+                $value = array();                
+                $value['page_title']= 'Products';
+                $value['products'] = $this->product_model->product_list();
 		$data['content'] = load_view('products_view',$value,TRUE);
                 $data['alias']   = 'products';
 		load_template($data,$this->active_theme);
+        }
+        
+        function advance_search()
+        {
+                $value = array();                
+                $value['page_title']= 'advance search';		
+		$data['content'] = load_view('advancesearch_view2',$value,TRUE);
+                $data['alias']   = 'advance_search';
+		load_template($data,$this->active_theme);
+        }
+        
+        function advance()
+        {
+                $value = array();                
+                $value['page_title']= 'advance search';		
+		$data['content'] = load_view('advancesearch_view',$value,TRUE);
+                $data['alias']   = 'advance_search';
+		load_template($data,$this->active_theme);
+        }
+        function get_services2()
+        {
+            $term = $_POST['search'];
+           //echo "<pre>";
+          // print_r($_POST);
+         
+           $services = $_POST['services'];
+           $count = 0;           
+           $where = "service_name LIKE '%".$term."%'";
+           foreach($services as $service):
+              
+               if($count==0)
+               {
+                   
+                   if($service=="quality")
+                   {
+                      $high = "high";
+                      $where .= " AND quality='high'";
+                   }
+                   if($service=="follow_up")
+                   {
+                       $where .= " AND follow_up='yes'";
+                   }
+                   if($service=="opening_hour")
+                   {
+                   
+                       $where .= " AND opening_hours =(SELECT MAX(opening_hours) FROM bd_services WHERE service_name LIKE '%".$term."%')";
+                   }                    
+                   if($service=="duration")
+                   {                       
+                       $where .= " AND duration=(SELECT MAX(duration) FROM bd_services  WHERE service_name LIKE '%".$term."%')";   
+                   }
+                   if($service=="services_cost")
+                   {
+                       $where .= " AND services_cost=(SELECT MAX(services_cost) FROM bd_services  WHERE service_name LIKE '%".$term."%')";   
+                   }
+                 
+               } 
+               else
+               {
+                    if($service=="quality")
+                   {
+                      $high = "high";
+                      $where .= " AND quality='high'";
+                   }
+                   if($service=="follow_up")
+                   {
+                       $where .= " AND follow_up='yes'";
+                   }
+                   if($service=="opening_hour")
+                   {
+                   
+                       $where .= " AND opening_hours =(SELECT MAX(opening_hours) FROM bd_services WHERE service_name LIKE '%".$term."%')";
+                   }                    
+                   if($service=="duration")
+                   {                       
+                       $where .= " AND duration=(SELECT MAX(duration) FROM bd_services  WHERE service_name LIKE '%".$term."%')";   
+                   }
+                   if($service=="services_cost")
+                   {
+                       $where .= " AND services_cost=(SELECT MAX(services_cost) FROM bd_services  WHERE service_name LIKE '%".$term."%')";   
+                   }
+               }
+                $count++;
+           endforeach;
+           //exit();
+           
+            $res = $this->db->query("SELECT * FROM bd_services WHERE $where")->result();
+            echo $this->db->last_query();
+            echo "<pre>";
+               print_r($res);
+              
+            die;
+            
+        }
+        
+        function get_services()
+        {
+             $term = $_POST['search'];
+           //echo "<pre>";
+          // print_r($_POST);
+         
+           $services = $_POST['services'];
+           $count = 0;    
+           $where = "service_name='".$term."'";
+           $order_by = "";
+           foreach($services as $service):
+               if($count==0)
+               {
+                       if($service=="quality")
+                       {
+                          $high = "high";
+                          $where .= " AND quality IN (SELECT quality FROM bd_services WHERE service_name LIKE '%".$term."%' AND quality='high' OR quality='medium' OR quality='low')";
+                          $order_by = "ORDER BY quality='high' DESC";
+                       }
+                       if($service=="follow_up")
+                       {
+                           $where .= " AND follow_up  IN (SELECT follow_up FROM bd_services WHERE follow_up='yes' AND service_name LIKE  '%".$term."%')";
+                       }
+                       if($service=="opening_hour")
+                       {
+
+                           $where .= " AND opening_hours >= (SELECT MAX(opening_hours) FROM bd_services WHERE service_name LIKE  '%".$term."%')";
+                       }                    
+                       if($service=="duration")
+                       {                       
+                           $where .= " AND duration >= (SELECT MAX(duration) FROM bd_services WHERE service_name='".$term."')";   
+                       }
+                       if($service=="services_cost")
+                       {
+                           $where .= " AND services_cost <= (SELECT MAX(services_cost) FROM bd_services WHERE service_name='".$term."')";   
+                       }
+                       if($service=="warranty_given")
+                       {
+                            $where .= " AND warranty_given = (SELECT MAX(warranty_given) FROM bd_services WHERE service_name='".$term."')";       
+                       }
+               }
+               else
+               {
+                   if($service=="quality")
+                   {
+                      $high = "high";
+                            $where .= " AND quality='high'";
+                   }
+                   if($service=="follow_up")
+                   {
+                            $where .= " OR follow_up='low'";
+                   }
+                   if($service=="opening_hour")
+                   {
+                   
+                            $where .= " OR opening_hours > (SELECT MAX(opening_hours) FROM bd_services WHERE service_name LIKE '%".$term."%')";
+                   }                    
+                   if($service=="duration")
+                   {                       
+                            $where .= " OR duration > (SELECT MAX(duration) FROM bd_services  WHERE service_name LIKE '%".$term."%')";   
+                   }
+                   if($service=="services_cost")
+                   {
+                            $where .= " OR services_cost = (SELECT MAX(services_cost) FROM bd_services  WHERE service_name='".$term."')";   
+                   }
+                   if($service=="warranty_given")
+                    {
+                            $where .= " AND warranty_given = (SELECT MAX(warranty_given) FROM bd_services WHERE service_name='".$term."')";       
+                    }
+               }
+               $count++;
+            endforeach;  
+            
+               $res =  $this->db->query("SELECT * FROM bd_services WHERE $where ")->result();          
+               $value = array();                
+               $value['page_title']= 'advance search';	
+               $value['services'] = $res;
+	       $result = load_view('service_result',$value,TRUE);
+               echo $result;
+           
+        }
+        
+        function get_product()
+        {
+            $term = $_POST['search'];
+            $where  = "product_name LIKE '%".$term."%'";
+            $order_by = " ORDER BY product_name ASC";
+            
+            $products = $_POST['product'];
+            $count = 0;
+            foreach($products as $product):
+                if($count==0)
+                {                   
+                   if($product=="quality" || $product=="size")
+                   {
+                      $high = "high";
+                      $where .= " AND quality IN (SELECT quality FROM bd_products WHERE quality='high' AND product_name LIKE  '%".$term."%')";
+                   }
+                   if($product=="guarantee")
+                   {                      
+                      $where .= " AND guarantee IN (SELECT guarantee FROM bd_products WHERE guarantee='24 months' AND product_name LIKE  '%".$term."%')"; 
+                   }
+                   if($product=="capacity")
+                   {                       
+                       $where .= " AND capacity=(SELECT MAX(capacity) FROM bd_products  WHERE product_name LIKE  '%".$term."%')";   
+                   }
+                   if($product=="size")
+                   {                       
+                       $where .= " AND size IN (SELECT size FROM bd_products WHERE  size='Large' AND  product_name LIKE  '%".$term."%')";   
+                   }
+                   if($product=="price_range")
+                   {                       
+                       $where .= " AND price=(SELECT MAX(price) FROM bd_products WHERE product_name LIKE  '%".$term."%')";   
+                   }
+                }
+                else
+                {   
+                   if($product=="quality")
+                   {
+                      $high = "high";
+                      $where .= " AND quality IN (SELECT quality FROM bd_products WHERE quality='high' AND product_name LIKE  '".$term."')";
+                   }
+                   if($product=="")
+                   {                      
+                      $where .= " AND guarantee IN (SELECT guarantee FROM bd_products WHERE guarantee='24 months' AND product_name LIKE  '".$term."')"; 
+                   }
+                   if($product=="capacity")
+                   {                       
+                       $where .= " AND capacity=(SELECT MAX(capacity) FROM bd_products  WHERE product_name LIKE '".$term."')";   
+                   }
+                   if($product=="size")
+                   {                       
+                       $where .= " AND size IN (SELECT size FROM bd_products WHERE  size='Large' AND  product_name LIKE  '".$term."')";   
+                   }      
+                   if($product=="price_range")
+                   {                       
+                       $where .= " AND price <= (SELECT MAX(price) FROM bd_products WHERE product_name LIKE  '".$term."')";   
+                       
+                   }
+                }
+                $count++;
+            endforeach;
+            $where .= "AND product_name LIKE '%".$term."%'";
+            $res = $this->db->query("SELECT * FROM bd_products  WHERE $where $order_by")->result();
+            
+               $value = array();                
+               $value['page_title']= 'advance search';	
+               $value['product'] = $res;
+	       $result = load_view('product_result',$value,TRUE);
+               echo $result;
+        }
+        
+        function search()
+        {
+            $res[] = $this->db->query("SELECT * FROM bd_services WHERE service_name='auto care'");
+            $res[] = $this->db->query("SELECT * FROM bd_services WHERE service_name='auto care' AND quality='high' AND opening_hours='24'");
+            
+            
         }
 }
 

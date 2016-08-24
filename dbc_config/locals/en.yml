@@ -640,3 +640,4 @@ edit_product : Edit Product
 product_updated : Product Updated Successfully
 product_deleted : Product Deleted Successfully
 all_product : All Product
+edit_service : Edit Service

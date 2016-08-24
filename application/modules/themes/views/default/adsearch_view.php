@@ -20,7 +20,9 @@
         else
           require'map_search_view.php';
         ?>
-      </div>    
+          
+      </div> 
+      
     </div>
 </div><!-- main block end -->
 

@@ -47,6 +47,12 @@ class Product_model_core extends CI_Model {
         $this->db->where('product_id', $id);
         $this->db->delete('bd_products');
     }
+    
+    function product_list()
+    {
+        $this->db->order_by('rand()');
+        return $this->db->get('bd_products');
+    }
 
 }
 

@@ -61,8 +61,9 @@ class Show_model_core extends CI_Model
         return $query;
 
     }
-
     
+    
+
 
     function count_all_active_blog_posts($type="all")
 
@@ -639,6 +640,26 @@ class Show_model_core extends CI_Model
 		}
 		return $data;
 	}
+    function get_all_active_services_by_range($start,$limit='',$sort_by='service_id',$sort='desc')
+    {
+        $this->db->order_by('service_id', $sort);
+        if($start==='all')
+        {
+            $query = $this->db->get('bd_services');
+        }
+        else
+        {
+            $query = $this->db->get('bd_services',$limit,$start);
+        }
+        return $query;
+
+    }
+
+    function count_all_active_services($type="all")
+    {
+        $query = $this->db->get('bd_services');
+        return $query->num_rows();
+    }
 
 }
 

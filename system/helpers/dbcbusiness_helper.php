@@ -519,6 +519,27 @@ if ( ! function_exists('get_featured_photo_by_id'))
 	}
 }
 
+if ( ! function_exists('get_product_photo_by_id'))
+{
+	function get_product_photo_by_id($img='')
+	{
+		if($img=='')
+		return base_url('assets/admin/img/preview.jpg');
+		else
+		return base_url('assets/images/product/'.$img);
+	}
+}
+if ( ! function_exists('get_service_photo_by_id'))
+{
+	function get_service_photo_by_id($img='')
+	{
+		if($img=='')
+		return base_url('assets/admin/img/preview.jpg');
+		else
+		return base_url('assets/images/services/'.$img);
+	}
+}
+
 if ( ! function_exists('get_slider_photo_by_name'))
 {
 	function get_slider_photo_by_name($img='')

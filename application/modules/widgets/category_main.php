@@ -25,7 +25,8 @@ $i++;
         $class = "red";
     ?>
     <header class="category-header bg-<?php echo $class;?> clearfix">
-        <a href="<?php echo site_url('show/categoryposts/'.$parent->id.'/'.dbc_url_title(lang_key($parent->title)));?>">
+        <!-- <?php // echo site_url('show/categoryposts/'.$parent->id.'/'.dbc_url_title(lang_key($parent->title)));?> -->
+        <a href="#">
             <div class="category-icon"><i class="fa <?php echo $parent->fa_icon;?>"></i></div>
             <div class="category-title">
                 <h5><?php echo lang_key($parent->title);?></h5>
@@ -36,8 +37,8 @@ $i++;
     <div class="img-box-6-item category-thumb-img">
         <!-- Image Box #6 Image -->
         <div class="image-style-one">
-            <!-- Image -->
-            <a href="<?php echo site_url('show/categoryposts/'.$parent->id.'/'.dbc_url_title(lang_key($parent->title)));?>">    <img src="<?php echo get_featured_photo_by_id($parent->featured_img); ?>" alt="" class="img-responsive">
+            <!-- Image  <?php // echo site_url('show/categoryposts/'.$parent->id.'/'.dbc_url_title(lang_key($parent->title)));?> -->
+            <a href="#">    <img src="<?php echo get_featured_photo_by_id($parent->featured_img); ?>" alt="" class="img-responsive">
             </a>
         </div>
     </div>

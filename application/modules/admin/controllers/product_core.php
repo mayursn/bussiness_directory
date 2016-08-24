@@ -81,14 +81,43 @@ class Product_core extends CI_Controller {
                 }
 		else
 		{
+                    $data = array();
+                    if($_FILES['photoimg']['name']!="")
+                    {
+                    $file = $_FILES['photoimg']['name'];
+                    $exp = explode('.', $file);
+                    $ext = strtolower(end($exp));
+                    $file_name = date('dmYhis').'.'.$ext;
+                    
+                    $config['upload_path']          = FCPATH.'assets/images/product/';
+                    $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                    $config['file_name'] = $file_name;
+
+                    $this->load->library('upload', $config);
+                    if ( ! $this->upload->do_upload('photoimg'))
+                    {
+                            $error =  $this->upload->display_errors();
+                            $this->session->set_flashdata('error',$error);
+                            $this->create();
+                    }
+                    else
+                    {
+                            //$data = array('upload_data' => $this->upload->data());
+                          
+                            $data['product_file'] =  $file_name;
+                    }
+                     
+                    }
 			$this->load->helper('date');
 			$this->load->library('encrypt');
 			$datestring = "%Y-%m-%d";
 			$time = time();
 			$request_date = mdate($datestring, $time);
-			$data = array();
+			
+                       
                         $data['user_id'] = $this->session->userdata('user_id');
 			$data['product_name'] = $this->input->post('product_name');
+                        $data['product_description'] = $this->input->post('description');
 			$data['quality'] = $this->input->post('quality');
 			$data['guarantee'] = $this->input->post('guarantee');
 			$data['color'] = $this->input->post('color');
@@ -97,8 +126,7 @@ class Product_core extends CI_Controller {
                         $data['make'] = $this->input->post('make');                        			
                         $data['model'] = $this->input->post('model');                        			
                         $data['price'] = $this->input->post('price');      
-                        $data['after_sales_service'] = $this->input->post('after_sales_service');      
-                        
+                        $data['after_sales_service'] = $this->input->post('after_sales_service');                              
 			$this->load->model('admin/product_model');
 			$user_id = $this->product_model->insert_product($data);
                         $this->session->set_flashdata('msg', '<div class="alert alert-success">'.lang_key('product_created').'</div>');
@@ -139,14 +167,43 @@ class Product_core extends CI_Controller {
                 }
 		else
 		{
+                   $data = array();
+                   
+                    if($_FILES['photoimg']['name']!="")
+                    {
+                   
+                    $file = $_FILES['photoimg']['name'];
+                    $exp = explode('.', $file);
+                    $ext = strtolower(end($exp));
+                    $file_name = date('dmYhis').'.'.$ext;
+                    $config['upload_path']          = FCPATH.'assets/images/product/';
+                    $config['allowed_types']        = 'gif|jpg|png|jpeg';
+                    $config['file_name'] = $file_name;
+
+                    $this->load->library('upload', $config);
+                    
+                    if ( ! $this->upload->do_upload('photoimg'))
+                    {
+                            $error =  $this->upload->display_errors();                            
+                            $this->session->set_flashdata('error',$error);
+                            $this->create();
+                    }
+                    else
+                    {
+                            //$data = array('upload_data' => $this->upload->data());
+                         $data['product_file'] =  $file_name;
+                    }
+                     
+                   
+                    }
 			$this->load->helper('date');
 			$this->load->library('encrypt');
 			$datestring = "%Y-%m-%d";
 			$time = time();
 			$request_date = mdate($datestring, $time);
-			$data = array();
                         $data['user_id'] = $this->session->userdata('user_id');
 			$data['product_name'] = $this->input->post('product_name');
+                        $data['product_description'] = $this->input->post('description');
 			$data['quality'] = $this->input->post('quality');
 			$data['guarantee'] = $this->input->post('guarantee');
 			$data['color'] = $this->input->post('color');
@@ -155,7 +212,7 @@ class Product_core extends CI_Controller {
                         $data['make'] = $this->input->post('make');                        			
                         $data['model'] = $this->input->post('model');                        			
                         $data['price'] = $this->input->post('price');      
-                        $data['after_sales_service'] = $this->input->post('after_sales_service');      
+                        $data['after_sales_service'] = $this->input->post('after_sales_service');                              
                         
 			$this->load->model('admin/product_model');
 			$user_id = $this->product_model->update_product($data,$id);

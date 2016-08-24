@@ -22,7 +22,7 @@
 
                 <?php echo $this->session->flashdata('msg'); ?>
 
-                <form class="form-horizontal" action="<?php echo site_url('admin/product/add'); ?>" method="post">
+                <form class="form-horizontal" action="<?php echo site_url('admin/product/add'); ?>" method="post"  enctype="multipart/form-data">
 
                 
                     <div class="form-group">
@@ -48,7 +48,7 @@
                         </div>
                     </div>
                      <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('guarantee'); ?></label>
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Guarantee'); ?></label>
                         <div class="col-sm-9 col-lg-6 controls">
                             <?php $curr_value=(set_value('guarantee')!='')?set_value('guarantee'):'';?>
                             <select class="form-control" name="guarantee" id="guarantee">                                
@@ -62,7 +62,7 @@
                     </div>                    
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('color'); ?></label>
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Color'); ?></label>
                         <div class="col-sm-9 col-lg-6 controls">
                             <input type="text" name="color" value="<?php echo set_value('color'); ?>"
                                    placeholder="<?php echo lang_key('Color'); ?>" class="form-control">
@@ -70,9 +70,17 @@
                             <span class="help-inline">&nbsp;</span>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Description'); ?></label>
+                        <div class="col-sm-9 col-lg-6 controls">
+                            <textarea name="description" placeholder="<?php echo lang_key('Description'); ?>" class="form-control"></textarea>                            
+                            <?php echo form_error('Description'); ?>
+                            <span class="help-inline">&nbsp;</span>
+                        </div>
+                    </div>
                     
                     <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('size'); ?></label>
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Size'); ?></label>
                         <div class="col-sm-9 col-lg-6 controls">
                             <?php $curr_value=(set_value('size')!='')?set_value('size'):'';?>
                             <select class="form-control" name="size" id="size">                                
@@ -86,7 +94,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('capacity'); ?></label>
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Capacity'); ?></label>
                         <div class="col-sm-9 col-lg-6 controls">
                             <input type="text" name="capacity" value="<?php echo set_value('capacity'); ?>"
                                    placeholder="<?php echo lang_key('capacity'); ?>" class="form-control">
@@ -95,16 +103,16 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('make'); ?></label>
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Make'); ?></label>
                         <div class="col-sm-9 col-lg-6 controls">
-                            <input type="text" name="make" value="<?php echo set_value('make'); ?>" placeholder="<?php echo lang_key('make'); ?>" class="form-control">
+                            <input type="text" name="make" value="<?php echo set_value('make'); ?>" placeholder="<?php echo lang_key('year'); ?>" class="form-control">
                             <?php echo form_error('make'); ?>
                             <span class="help-inline">&nbsp;</span>
                         </div>
                     </div>
                     
                     <div class="form-group">
-                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('model'); ?></label>
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('Model'); ?></label>
                         <div class="col-sm-9 col-lg-6 controls">
                             <input type="text" name="model" value="<?php echo set_value('model'); ?>" placeholder="<?php echo lang_key('model'); ?>" class="form-control">
                             <?php echo form_error('model'); ?>
@@ -130,6 +138,17 @@
                                 <option value="No" >No</option>                                
                             </select>
                             <?php echo form_error('after_sales_service'); ?>
+                            <span class="help-inline">&nbsp;</span>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-3 col-lg-2 control-label"><?php echo lang_key('File'); ?></label>
+                        <div class="col-sm-9 col-lg-6 controls">
+                            <ol class="filelist">
+
+                            </ol>
+                           <input type="file" name="photoimg" style="height:auto;" >
+                            <?php echo form_error('photoimg'); ?>
                             <span class="help-inline">&nbsp;</span>
                         </div>
                     </div>

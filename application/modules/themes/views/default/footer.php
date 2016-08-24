@@ -30,7 +30,7 @@
     <div class="container">
         <!-- Footer Content -->
             <!-- Paragraph -->
-            <p class="pull-left"><?php echo translate(get_settings('site_settings','footer_text','copyright@'));?> | Powered by <a href="http://codecanyon.net/user/webhelios/portfolio?ref=webhelios">Searchnative</a></p>
+            <p class="pull-left"><?php echo translate(get_settings('site_settings','footer_text','copyright@'));?> | Developed by  <a href="http://searchnative.in" target="_blank">Searchnative</a></p>
             <?php render_widget('footer_links') ?>
             <!-- Clearfix -->
             <div class="clearfix"></div>
